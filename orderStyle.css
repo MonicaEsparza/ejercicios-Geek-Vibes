@@ -1,0 +1,55 @@
+table{
+    padding:5%;
+    padding-top: 0;
+    width: 100% !important;
+    border-collapse:separate; 
+    border-spacing: 0 15px; 
+    background-color: #f2f4f7;
+    border-radius: 10px;  
+}
+@media (max-width:430px){
+    table{
+        width: 100%;
+    }
+}
+
+@media (min-width:430px){
+    table{
+        width: 98%;
+    }
+}
+
+@media (min-width:370px){
+    table{
+        width: 95%;
+    }
+}
+@media (min-width:270px){
+    table{
+        width: 90%;
+    }
+    .tercerth{
+        width: 80px;
+    }
+}
+
+th{
+    font-size: 20px;
+    text-align: left;
+    color: #09367a;
+}
+td{
+    border-top: #727272 solid 1px;
+    padding:6px;
+}
+.primerth{
+    width: 80px;
+}
+.segundoth{
+    width: 80px;
+}
+
+.tercerth{
+    width: 120px;
+}
+

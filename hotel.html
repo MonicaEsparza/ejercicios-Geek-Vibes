@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<link rel="stylesheet" href="estiloHotel.css">
+
+<body>
+    <script>        
+        fetch('https://my-json-server.typicode.com/dered-dev/hotelsapi/db').then(response => response.json()).then(json => {
+            resultado = json['hotels']
+            fnHoteles(resultado);
+        })
+        var hoteles = [];
+        function fnHoteles(resultado) {
+            hoteles = resultado
+            var contenedorTabla = document.getElementById('contenedorTabla');
+            var tabla = '<table>';
+            tabla = tabla + '<tr>';
+            tabla = tabla + '<th class="primerth">Código de Hotel</th>'
+            tabla = tabla + '<th class="segundoth">Marca</th>'
+            tabla = tabla + '<th class="tercerth">Etiqueta de Hotel</th>'
+            tabla = tabla + '<th class="cuartoth"></th>'
+            tabla = tabla + '</tr>';
+            hoteles.forEach((element, index) => {
+                tabla = tabla + '<tr class="saltoRow">';
+                tabla = tabla + '<td>' + element['codigo'] + '</td>'
+                tabla = tabla + '<td>' + element['marca'] + '</td>'
+                tabla = tabla + '<td>' + element['label'] + '</td>'
+                tabla = tabla + `<td>  <button type="button" onclick="fnborrar('${index}')">Borrar</button>   </td>`
+                tabla = tabla + '</tr>';
+            });
+            tabla = tabla + '</table>';
+
+            contenedorTabla.innerHTML = tabla;
+        }
+
+        function fnborrar (index) {
+            hoteles.splice(index, 1)
+            console.log(index, hoteles)
+
+            fnHoteles(hoteles)
+        }
+
+        
+    </script>
+
+    <div id="contenedorTabla"></div>
+</body>
+
+</html>
